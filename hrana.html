@@ -14,15 +14,21 @@
             font-family: Calibri, sans-serif;
         }
         nav{
-            background-color: #0c0c11;
+            background-color: #2d2929;
         }
         nav ul{
             list-style-type: none;
             text-align: center;
+            font-family: 'Open Sans', Arial, Tahoma, sans-serif;
         }
-        nav ul li{
+        nav ul button{
             display: inline-block;
-            padding: 10px 111.2px;
+            padding: auto;
+            width: 30%;
+            background: #2d2929;
+            border-radius: 10px;
+            height: 40px;
+            border: none;
         }
         nav li:hover{
             background-color: #2d2929;
@@ -31,6 +37,8 @@
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
+            padding: 10px 50px;
+
         }
         nav a:hover, nav a:active{
             color: #483D8B;
@@ -46,9 +54,9 @@
             padding: 30px 30px ;
             font: 1em sans-serif;
             border: none;
-            background: #000;
+            background: #2e2d2d;
             color: #fff;
-            border-radius: 70px;
+            border-radius: 20px;
             display:inline-block;
             margin: 20px 20px auto;
             
@@ -65,15 +73,20 @@
 <body>
     <nav>
         <ul>
-            <li><a href="hrana.html">HRANA</a></li>
-            <li><a href="stolovi.html">STOLOVI</a></li>
+            <button><a href="">Pocetna</a></button>
+            <button><a href="hrana.html">HRANA</a></button>
+            <button><a href="stolovi.html">STOLOVI</a></button>
             
         </ul>
     </nav>
     <div class="sadrzaj">
-        <p>Stolovi</p>
+        <p>Hrana</p>
         <ul>
-            
+            <button id="pice" src="stolovi.html">Piće</button>
+            <button>Predjelo</button>
+            <button>Glavno jelo</button>
+            <button>Desert</button>
+            <button>Dodaci</button>
         </ul>
         
     </div>  

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigacijska traka</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            font-family: Calibri, sans-serif;
+        }
+        nav{
+            background-color: #2d2929;
+        }
+        nav ul{
+            list-style-type: none;
+            text-align: center;
+            font-family: 'Open Sans', Arial, Tahoma, sans-serif;
+        }
+        nav ul button{
+            display: inline-block;
+            padding: auto;
+            width: 30%;
+            background: #2d2929;
+            border-radius: 10px;
+            height: 40px;
+            border: none;
+        }
+        nav li:hover{
+            background-color: #2d2929;
+        }
+        nav a:link, nav a:visited{
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 10px 50px;
+
+        }
+        nav a:hover, nav a:active{
+            color: #483D8B;
+        }
+        .sadrzaj{
+            margin: 20px;
+        }
+        div ul li{
+            padding: 10px 10px 10px 10px;
+            background: #fff;
+        }
+        div ul button{
+            padding: 30px 30px ;
+            font: 1em sans-serif;
+            border: none;
+            background: #2e2d2d;
+            color: #fff;
+            border-radius: 20px;
+            display:inline-block;
+            margin: 20px 20px auto;
+            
+        }
+        div ul button:hover{
+            filter: brightness(0.5);
+        }
+        div ul button:active{
+            transform:  translate(2px);
+        }
+        
+       
+        .vrsta-hrane {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .vrsta-hrane .stavka-hrane {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .vrsta-hrane .stavka-hrane:hover {
+            background-color: #f5f5f5;
+        }
+        #vrsteDeserta li {
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        #vrsteDeserta li:hover {
+            background-color: #f0f0f0;
+            display: inline-block;
+            padding: auto;
+            width: 30%;
+            background: #2d2929;
+            border-radius: 10px;
+            height: 40px;
+            border: none;
+        }
+
+        #vrsteDeserta li.odabrano {
+            background-color: #c0c0c0;
+            
+        }
+        
+        #vrstePića li {
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        #vrstePića li:hover {
+            background-color: #f0f0f0;
+            display: inline-block;
+            padding: auto;
+            width: 30%;
+            background: #2d2929;
+            border-radius: 10px;
+            height: 40px;
+            border: none;
+        }
+
+        #vrstePića li.odabrano {
+            background-color: #c0c0c0;
+            
+        }
+
+        
+        #vrstePredjela li {
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        #vrstePredjela li:hover {
+            background-color: #f0f0f0;
+            display: inline-block;
+            padding: auto;
+            width: 30%;
+            background: #2d2929;
+            border-radius: 10px;
+            height: 40px;
+            border: none;
+        }
+
+        #vrstePredjela li.odabrano {
+            background-color: #c0c0c0;
+            
+        }
+
+
+        #vrsteGlavnih li {
+            cursor: pointer;
+            transition: background-color 0.3s;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        #vrsteGlavnih li:hover {
+            background-color: #f0f0f0;
+            display: inline-block;
+            padding: auto;
+            width: 30%;
+            background: #2d2929;
+            border-radius: 10px;
+            height: 40px;
+            border: none;
+        }
+
+        #vrsteGlavnih li.odabrano {
+            background-color: #c0c0c0;
+            
+        }
+
+
+        .brojNarudzbi {
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .dugmeDodaj, .dugmeOduzmi {
+            cursor: pointer;
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-left: 5px;
+            border-radius: 3px;
+        }
+
+        .dugmeDodaj:hover, .dugmeOduzmi:hover {
+            background-color: #f0f0f0;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <button><a href="">Pocetna</a></button>
+            <button><a href="hrana.html">HRANA</a></button>
+            <button><a href="stolovi.html">STOLOVI</a></button>
+        </ul>
+    </nav>
+    <div class="sadrzaj">
+        <p>Hrana</p>
+        <ul>
+            <button id="pice" class="vrsta-btn" data-target="pice">Piće</button>
+            <button id="predjelo" class="vrsta-btn" data-target="predjelo">Predjelo</button>
+            <button id="glavnoJelo" class="vrsta-btn" data-target="glavnoJelo">Glavno jelo</button>
+            <button id="desert" class="vrsta-btn" data-target="desert">Desert</button>
+            <button id="dodaci" class="vrsta-btn" data-target="dodaci">Dodaci</button>
+        </ul>
+
+
+
+        <!-- Dodatni HTML za prikaz hrane -->
+        <div id="prikazHrane" class="vrsta-hrane">
+            <!-- Stavke će se dinamički dodavati ovde putem JavaScript-a -->
+        </div>
+
+        <!-- Dodatni HTML za prikaz dodatnih opcija -->
+        <div id="dodatneOpcije" class="vrsta-hrane">
+            <!-- Dodatne opcije će se dinamički dodavati ovde putem JavaScript-a -->
+        </div>
+       <!-- Dodajmo novi div za opcije deserata -->
+
+
+
+    <div id="opcijeDeserta" style="display: none;">
+        <h2>Dodaj desert: </h2>
+        <ul id="vrsteDeserta">
+            <li >Lava Cake <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Tri Lecce<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Nutella boom <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
+            <!-- Dodaj više opcija prema potrebi -->
+        </ul>
+    </div>
+
+    <div id="opcijePića" style="display: none;">
+        <h2>Dodaj piće: </h2>
+        <ul id="vrstePića">
+            <li >Coca-Cola<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Fanta<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Mineralna <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
+            <!-- Dodaj više opcija prema potrebi -->
+        </ul>
+    </div>
+
+    <div id="opcijePredjela" style="display: none;">
+        <h2>Dodaj predjelo: </h2>
+        <ul id="vrstePredjela">
+            <li >Juha s povrćem<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Uštipci i meza<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Minguessa s maslinama <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
+            <!-- Dodaj više opcija prema potrebi -->
+        </ul>
+    </div>
+
+    <div id="opcijeGlavnojelo" style="display: none;">
+        <h2>Dodaj glavno jelo: </h2>
+        <ul id="vrsteGlavnih">
+            <li >Biftek na žaru<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Tagliatelle sa sirom<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Teletina sporo pečena <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
+            <!-- Dodaj više opcija prema potrebi -->
+        </ul>
+    </div>
+
+    <script src="kod.js"></script>
+</body>
+</html>

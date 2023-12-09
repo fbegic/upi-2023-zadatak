@@ -47,6 +47,32 @@
         }
         .sadrzaj{
             margin: 20px;
+            
+        }
+        .popup{
+            width: 400px;
+            background: #fff;
+            border-radius: 6px;
+            border-bottom:2px solid black;
+            border-top:2px solid black;
+            border-left:2px solid black;
+            border-right:2px solid black;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0.1);
+            text-align: center;
+            padding: 20px 20px 20px 20px;
+            color: #333;
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+            
+        }
+
+        .open-popup{
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(1);
         }
         div ul li{
             padding: 10px 10px 10px 10px;
@@ -72,6 +98,7 @@
             transform:  translate(2px);
         }
         
+        
     </style>
 </head>
 <body>
@@ -86,13 +113,31 @@
     <div class="sadrzaj">
         <p>Stolovi</p>
         <ul>
-            <button>Stol 1.</button>
-            <button>Stol 2.</button>
-            <button>Stol 3.</button>
-            <button>Stol 4.</button>
-            <button>Stol 5.</button>
+            <button onclick="openPopup()">Stol 1.</button>
+            <button onclick="openPopup()">Stol 2.</button>
+            <button onclick="openPopup()">Stol 3.</button>
+            <button onclick="openPopup()">Stol 4.</button>
+            <button onclick="openPopup()">Stol 5.</button>
+
+            <div class="popup" id="popup">
+                <h2>Želite li rezervirati stol ili vidjeti meni</h2>
+                <button onclick="closePopup()">Rezervacija</button>
+                <button onclick="closePopup()">Meni</button>
+
+            
         </ul>
+
         
-    </div>  
+        
+    </div> 
+<script>
+    let popup=document.getElementById("popup");
+    function openPopup(){
+        popup.classList.add("open-popup")
+    }
+    function closePopup(){
+        popup.classList.remove("open-popup")
+    }
+</script>
 </body>
 </html>

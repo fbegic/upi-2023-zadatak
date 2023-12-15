@@ -1,4 +1,12 @@
 //ZA Desert
+const sql=require("msnodesqlv8");
+
+const connestionString="putanja do baze";
+
+const query="ime svoje tablice iz baze kojoj uzimate podatke";
+sql.query(connestionString,query,(err,rows)=>{
+  console.log(rows);
+})
 document.addEventListener('DOMContentLoaded', function() 
  {
    var opcijeDesertaDiv = document.getElementById('opcijeDeserta');

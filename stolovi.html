@@ -97,7 +97,30 @@
         div ul button:active{
             transform:  translate(2px);
         }
-        
+        .rezervacija{
+            width: 600px;
+            background: #fff;
+            border-radius: 6px;
+            border-bottom:2px solid black;
+            border-top:2px solid black;
+            border-left:2px solid black;
+            border-right:2px solid black;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0.1);
+            text-align: center;
+            padding: 20px 20px 20px 20px;
+            color: #333;
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+            
+        }
+        .rez_st{
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(1);
+        }
         
     </style>
 </head>
@@ -113,18 +136,23 @@
     <div class="sadrzaj">
         <p>Stolovi</p>
         <ul>
-            <button onclick="openPopup()">Stol 1.</button>
-            <button onclick="openPopup()">Stol 2.</button>
-            <button onclick="openPopup()">Stol 3.</button>
-            <button onclick="openPopup()">Stol 4.</button>
-            <button onclick="openPopup()">Stol 5.</button>
+            <button onclick="openPopup() || slanje(stol1)" id="stol1" class="stolovi">Stol 1.</button>
+            <button onclick="openPopup() || slanje(stol2)" id="stol2" class="stolovi">Stol 2.</button>
+            <button onclick="openPopup() || slanje(stol3)"id="stol3" class="stolovi">Stol 3.</button>
+            <button onclick="openPopup() || slanje(stol4)"id="stol4" class="stolovi">Stol 4.</button>
+            <button onclick="openPopup() || slanje(stol5)" id="stol5" class="stolovi">Stol 5.</button>
 
             <div class="popup" id="popup">
                 <h2>Želite li rezervirati stol ili vidjeti meni</h2>
-                <button onclick="closePopup()">Rezervacija</button>
-                <button onclick="closePopup()">Meni</button>
-
-            
+                <button onclick="rezerv() || closePopup()"  >Rezervacija</button>
+                <button onclick="closePopup()">Meni</button> 
+            </div>
+            <div class="rezervacija" id="rezervacija">
+                <h2>Odaberite vrstu rezervacije</h2>
+                <button onclick="boj1() || rezerv_close()" id="cijeli dan">Cijeli dan</button>
+                <button onclick="boj2() || rezerv_close()" id="Rucak">Rucak</button>
+                <button onclick="boj3() || rezerv_close()" id="Vecera">Vecera</button>
+            </div> 
         </ul>        
     </div> 
      <script src="kod.js"></script>

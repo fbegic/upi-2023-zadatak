@@ -98,22 +98,31 @@
             transform:  translate(2px);
         }
         .rezervacija{
-            width: 600px;
+            width: 300px;
+            height: 300px;
+            display: block;
             background: #fff;
             border-radius: 6px;
-            border-bottom:2px solid black;
-            border-top:2px solid black;
-            border-left:2px solid black;
-            border-right:2px solid black;
+            border-bottom:2px solid rgb(197, 190, 190);
+            border-top:2px solid rgb(197, 190, 190);
+            border-left:2px solid rgb(197, 190, 190);
+            border-right:2px solid rgb(197, 190, 190);
             position: absolute;
             top: 0%;
             left: 50%;
             transform: translate(-50%,-50%) scale(0.1);
-            text-align: center;
-            padding: 20px 20px 20px 20px;
+            text-align: left;
+            padding: 30px 20px 20px 20px;
             color: #333;
             visibility: hidden;
             transition: transform 0.4s, top 0.4s;
+            
+            
+        }
+        .rezervacija input
+        {
+            margin-bottom: 5%;
+            margin-top: 18%;
             
         }
         .rez_st{
@@ -149,9 +158,13 @@
             </div>
             <div class="rezervacija" id="rezervacija">
                 <h2>Odaberite vrstu rezervacije</h2>
-                <button onclick="boj1() || rezerv_close()" id="cijeli dan">Cijeli dan</button>
-                <button onclick="boj2() || rezerv_close()" id="Rucak">Rucak</button>
-                <button onclick="boj3() || rezerv_close()" id="Vecera">Vecera</button>
+                <input type="radio" id="cijeli dan" name="grupa" value="1" onclick="boj1() || rezerv_close()">
+                <label for="opcija1">Cijeli dan</label><br>
+                <input type="radio" id="Rucak" name="grupa" value="2" onclick="boj2() || rezerv_close()">
+                <label for="opcija2">Ručak</label><br>
+                <input type="radio" id="Vecera" name="grupa" value="3" onclick="boj3() || rezerv_close()">
+                <label for="opcija3">Večera</label><br>
+                
             </div> 
         </ul>        
     </div> 

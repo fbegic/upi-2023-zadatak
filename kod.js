@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function()
       }
    });
  });
-
+ 
  //Za Predjelaa
  document.addEventListener('DOMContentLoaded', function() 
  {
@@ -133,7 +133,9 @@ let bojanje5=document.getElementById("stol5");
 
 function boj1()
 {
-  if(idobar==bojanje1.id) bojanje1.style.backgroundColor = "#501313";
+  if(idobar==bojanje1.id) {
+    bojanje1.style.backgroundColor = "#501313";
+  }
   else if(idobar==bojanje2.id) bojanje2.style.backgroundColor = "#501313";
   else if(idobar==bojanje3.id) bojanje3.style.backgroundColor = "#501313";
   else if(idobar==bojanje4.id) bojanje4.style.backgroundColor = "#501313";
@@ -155,5 +157,35 @@ function boj3()
   else if(idobar==bojanje3.id) bojanje3.style.backgroundColor =  "#0d4f19";
   else if(idobar==bojanje4.id) bojanje4.style.backgroundColor =  "#0d4f19";
   else if(idobar==bojanje5.id) bojanje5.style.backgroundColor =  "#0d4f19";
+  
+}
+
+let dod=document.getElementById("dodavanje");
+function dodaj(){
+    dod.classList.add("dod_open")
+}
+function zatvori(){
+    dod.classList.remove("dod_open")
+}
+
+class Namjernica{
+
+  constructor(a,b)
+  {
+    this.naziv=a;
+    this.cijena=b;
+  }
+}
+function citanje()
+{
+  const n=document.getElementById("Nazivjela");
+  const c=document.getElementById("Cijenajela");
+  let naziv=n.value;
+  let cijena=c.value;
+  var dodatni=document.createElement("li");
+  var tekst = document.createTextNode(naziv+" "+cijena);
+  dodatni.appendChild(tekst);
+  var lista = document.getElementById("vrstePredjela");
+  lista.appendChild(dodatni);
   
 }

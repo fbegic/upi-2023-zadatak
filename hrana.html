@@ -46,6 +46,7 @@
         .sadrzaj{
             margin: 20px;
         }
+        
         div ul li{
             padding: 10px 10px 10px 10px;
             background: #fff;
@@ -79,6 +80,31 @@
             border: 1px solid #ddd;
             margin: 5px 0;
             cursor: pointer;
+        }
+        .dodavanje{
+            width: 400px;
+            background: #fff;
+            border-radius: 6px;
+            border-bottom:2px solid black;
+            border-top:2px solid black;
+            border-left:2px solid black;
+            border-right:2px solid black;
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0.1);
+            text-align: center;
+            padding: 20px 20px 20px 20px;
+            color: #333;
+            visibility: hidden;
+            transition: transform 0.4s, top 0.4s;
+            
+        }
+
+        .dod_open{
+            visibility: visible;
+            top: 50%;
+            transform: translate(-50%,-50%) scale(1);
         }
 
         .vrsta-hrane .stavka-hrane:hover {
@@ -199,7 +225,7 @@
         .dugmeDodaj:hover, .dugmeOduzmi:hover {
             background-color: #f0f0f0;
         }
-
+        
         
     </style>
 </head>
@@ -214,9 +240,9 @@
     <div class="sadrzaj">
         <p>Hrana</p>
         <ul>
-            <button id="pice" class="vrsta-btn" data-target="pice">Piće</button>
-            <button id="predjelo" class="vrsta-btn" data-target="predjelo">Predjelo</button>
-            <button id="glavnoJelo" class="vrsta-btn" data-target="glavnoJelo">Glavno jelo</button>
+            <button id="pice" class="vrsta-btn" data-target="pice" onclick="slanje(vrstePića)">Piće</button>
+            <button id="predjelo" class="vrsta-btn" data-target="predjelo" onclick="slanje(vrstePredjela)">Predjelo</button>
+            <button id="glavnoJelo" class="vrsta-btn" data-target="glavnoJelo" onclick="slanje(vrsteGlavnih)">Glavno jelo</button>
             <button id="desert" class="vrsta-btn" data-target="desert">Desert</button>
             <button id="dodaci" class="vrsta-btn" data-target="dodaci">Dodaci</button>
         </ul>
@@ -239,9 +265,10 @@
     <div id="opcijeDeserta" style="display: none;">
         <h2>Dodaj desert: </h2>
         <ul id="vrsteDeserta">
-            <li >Lava Cake <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Lava Cake <span class="brojNarudzbi">0</span><span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
             <li >Tri Lecce<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
             <li >Nutella boom <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
+            <li onclick="dodaj()">Dodaj jos</li>
             <!-- Dodaj više opcija prema potrebi -->
         </ul>
     </div>
@@ -249,19 +276,21 @@
     <div id="opcijePića" style="display: none;">
         <h2>Dodaj piće: </h2>
         <ul id="vrstePića">
-            <li >Coca-Cola<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Coca-Cola cijena 2€<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
             <li >Fanta<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
             <li >Mineralna <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
+            <li onclick="dodaj()">Dodaj jos</li>
             <!-- Dodaj više opcija prema potrebi -->
         </ul>
     </div>
 
-    <div id="opcijePredjela" style="display: none;">
+    <div id="opcijePredjela" style="display: none;" >
         <h2>Dodaj predjelo: </h2>
         <ul id="vrstePredjela">
-            <li >Juha s povrćem<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
-            <li >Uštipci i meza<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
-            <li >Minguessa s maslinama <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
+            <li id="nazivhrane">Juha s povrćem<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span id="cijena"><span>23</span></li>
+            <li id="nazivhrane">Uštipci i meza<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li id="nazivhrane">Minguessa s maslinama <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
+            <li onclick="dodaj()">Dodaj jos</li>
             <!-- Dodaj više opcija prema potrebi -->
         </ul>
     </div>
@@ -269,13 +298,22 @@
     <div id="opcijeGlavnojelo" style="display: none;">
         <h2>Dodaj glavno jelo: </h2>
         <ul id="vrsteGlavnih">
-            <li >Biftek na žaru<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
+            <li >Biftek na žaru<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><span id="cijena">25
+
+            </span></li>
             <li >Tagliatelle sa sirom<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
             <li >Teletina sporo pečena <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
-            <!-- Dodaj više opcija prema potrebi -->
+            <li onclick="dodaj()">Dodaj jos</li>
+            
         </ul>
     </div>
-
+    <div class="dodavanje" id="dodavanje">
+        <h2>Dodavanje hrane</h2>
+         <label>Naziv jela<input type="text" id="Nazivjela" name="NazivJela" class="NazivJela"></label><br>
+        <label>Cijena jela<input type="text" id="Cijenajela" name="CijenaJela" class="CijenaJela"></label><br>
+        <button id="unos" onclick="citanje() || zatvori()">Dodaj</button>
+        </div>
+    </div>
     <script src="kod.js"></script>
 </body>
 </html>

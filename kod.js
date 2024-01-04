@@ -1,5 +1,5 @@
 
-// const { JSDOM } = require('jsdom');
+// import { JSDOM } from 'jsdom';
 // const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
 
 // // Emulirajte globalni objekt "window" i "document"
@@ -159,4 +159,17 @@ function citanje()
     
     
   }
+}
+
+let idobar;
+function slanje(gumb)
+{
+  idobar=gumb.id;
+}
+
+function bris(c)
+{
+  var e=c.id;
+  let elem=document.getElementById(e);
+  elem.remove();
 }

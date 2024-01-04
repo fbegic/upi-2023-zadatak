@@ -1,36 +1,36 @@
 
-const { JSDOM } = require('jsdom');
-const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
+// const { JSDOM } = require('jsdom');
+// const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
 
-// Emulirajte globalni objekt "window" i "document"
-global.window = dom.window;
-global.document = dom.window.document;
+// // Emulirajte globalni objekt "window" i "document"
+// global.window = dom.window;
+// global.document = dom.window.document;
 
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('mojaBaza.db');
+// const sqlite3 = require('sqlite3').verbose();
+// const db = new sqlite3.Database('mojaBaza.db');
 
-// Kreiranje tablice
-db.serialize(() => {
-  db.run('CREATE TABLE IF NOT EXISTS namjernice (id INTEGER PRIMARY KEY, naziv TEXT, cijena INT,kolicina INT)');
+// // Kreiranje tablice
+// db.serialize(() => {
+//   db.run('CREATE TABLE IF NOT EXISTS namjernice (id INTEGER PRIMARY KEY, naziv TEXT, cijena INT,kolicina INT)');
 
-  // Dodavanje podataka u tablicu
-  const statement = db.prepare('INSERT INTO namjernice (naziv,cijena,kolicina) VALUES (?, ?, ?)');
-  statement.run('Jabuke', 34, 10);
-  statement.run('Jastog', 33, 15);
-  statement.finalize();
+//   // Dodavanje podataka u tablicu
+//   const statement = db.prepare('INSERT INTO namjernice (naziv,cijena,kolicina) VALUES (?, ?, ?)');
+//   statement.run('Jabuke', 34, 10);
+//   statement.run('Jastog', 33, 15);
+//   statement.finalize();
 
-  // Dohvaćanje podataka iz tablice
-  db.each('SELECT id, naziv, cijena, kolicina FROM namjernice', (err, row) => {
-    if (err) {
-      console.error(err.message);
-    } else {
-      console.log(row.id, row.naziv, row.cijena, row.kolicina);
-    }
-  });
-});
+//   // Dohvaćanje podataka iz tablice
+//   db.each('SELECT id, naziv, cijena, kolicina FROM namjernice', (err, row) => {
+//     if (err) {
+//       console.error(err.message);
+//     } else {
+//       console.log(row.id, row.naziv, row.cijena, row.kolicina);
+//     }
+//   });
+// });
 
-// Zatvaranje baze podataka nakon izvršavanja upita
-db.close();
+// // Zatvaranje baze podataka nakon izvršavanja upita
+// db.close();
 document.addEventListener('DOMContentLoaded', function() 
  {
    var opcijeDesertaDiv = document.getElementById('opcijeDeserta');
@@ -191,25 +191,42 @@ function dodaj(){
 function zatvori(){
     dod.classList.remove("dod_open")
 }
-
-class Namjernica{
-
-  constructor(a,b)
-  {
-    this.naziv=a;
-    this.cijena=b;
-  }
+let prozor;
+function sl(a)
+{
+  prozor=a;
 }
 function citanje()
 {
   const n=document.getElementById("Nazivjela");
   const c=document.getElementById("Cijenajela");
+  let v=prozor;
   let naziv=n.value;
   let cijena=c.value;
-  var dodatni=document.createElement("li");
-  var tekst = document.createTextNode(naziv+" "+cijena);
-  dodatni.appendChild(tekst);
-  var lista = document.getElementById("vrstePredjela");
-  lista.appendChild(dodatni);
-  
+  if(naziv=="" || cijena=="")
+  {
+    zatvori();
+  }
+  else
+  {
+    var dodatni=document.createElement("li");
+    var tekst = document.createTextNode(naziv+" "+cijena);
+    dodatni.appendChild(tekst);
+    let lista = document.getElementById(idobar);
+    lista.appendChild(dodatni);
+    
+    
+  }
+}
+function otvaranjemeni()
+{
+  window.location.href = 'hrana.html';
+  let stol1=[];
+
+}
+function bris(c)
+{
+  var e=c.id;
+  let elem=document.getElementById(e);
+  elem.remove();
 }

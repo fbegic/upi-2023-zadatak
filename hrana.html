@@ -225,7 +225,10 @@
         .dugmeDodaj:hover, .dugmeOduzmi:hover {
             background-color: #f0f0f0;
         }
-        
+        .smece{
+            height: 20px;
+            width: 20px;
+        }
         
     </style>
 </head>
@@ -237,7 +240,7 @@
             <button><a href="stolovi.html">STOLOVI</a></button>
         </ul>
     </nav>
-    <div class="sadrzaj">
+    <div class="sadrzaj" id="sadrzaj">
         <p>Hrana</p>
         <ul>
             <button id="pice" class="vrsta-btn" data-target="pice" onclick="slanje(vrstePića)">Piće</button>
@@ -265,54 +268,55 @@
     <div id="opcijeDeserta" style="display: none;">
         <h2>Dodaj desert: </h2>
         <ul id="vrsteDeserta">
-            <li >Lava Cake <span class="brojNarudzbi">0</span><span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
-            <li >Tri Lecce<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
-            <li >Nutella boom <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
-            <li onclick="dodaj()">Dodaj jos</li>
+            <li id="lava" >Lava Cake <span class="brojNarudzbi">0</span><span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(lava)" src="smece.png" /></li>
+            <li id="lecce">Tri Lecce<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(lecce)" src="smece.png" /></li>
+            <li id="nutella">Nutella boom <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(nutella)" src="smece.png" /></li>            
+            
             <!-- Dodaj više opcija prema potrebi -->
         </ul>
+        <li id="unos" onclick=" dodaj() || sl(vrsteDeserta)">Dodaj jos</li>
     </div>
 
     <div id="opcijePića" style="display: none;">
         <h2>Dodaj piće: </h2>
         <ul id="vrstePića">
-            <li >Coca-Cola cijena 2€<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
-            <li >Fanta<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
-            <li >Mineralna <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
-            <li onclick="dodaj()">Dodaj jos</li>
+            <li id="cola">Coca-Cola cijena 2€<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(cola)" src="smece.png" /></li>
+            <li id="fanta">Fanta<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(fanta)" src="smece.png" /></li>
+            <li id="mineralna">Mineralna <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(mineralna)" src="smece.png" /></li>            
+            
             <!-- Dodaj više opcija prema potrebi -->
         </ul>
+        <li id="unos" onclick="dodaj() || sl(vrstePića)">Dodaj jos</li>
     </div>
 
     <div id="opcijePredjela" style="display: none;" >
         <h2>Dodaj predjelo: </h2>
         <ul id="vrstePredjela">
-            <li id="nazivhrane">Juha s povrćem<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span id="cijena"><span>23</span></li>
-            <li id="nazivhrane">Uštipci i meza<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
-            <li id="nazivhrane">Minguessa s maslinama <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
-            <li onclick="dodaj()">Dodaj jos</li>
+            <li id="juha">Juha s povrćem<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span id="cijena"><span>23</span><img class="smece" id="smece" onclick="bris(juha)" src="smece.png" /></li>
+            <li id="ustipci">Uštipci i meza<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(ustipci)" src="smece.png" /></li>
+            <li id="minguessa">Minguessa s maslinama <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(minguessa)" src="smece.png" /></li>            
+            
             <!-- Dodaj više opcija prema potrebi -->
         </ul>
+        <li id="unos"  onclick="dodaj() || sl(vrstePredjela)">Dodaj jos</li>
     </div>
 
     <div id="opcijeGlavnojelo" style="display: none;">
         <h2>Dodaj glavno jelo: </h2>
         <ul id="vrsteGlavnih">
-            <li >Biftek na žaru<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><span id="cijena">25
-
-            </span></li>
-            <li >Tagliatelle sa sirom<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>
-            <li >Teletina sporo pečena <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span></li>            
-            <li onclick="dodaj()">Dodaj jos</li>
+            <li id="biftek">Biftek na žaru<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><span id="cijena">25</span><img class="smece" id="smece" onclick="bris(biftek)" src="smece.png" /></li>
+            <li id="tagliatelle" >Tagliatelle sa sirom<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(tagliatelle)" src="smece.png" /></li>
+            <li id="teletina">Teletina sporo pečena <span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(teletina)" src="smece.png" /></li>            
             
         </ul>
+        <li id="unos" onclick="dodaj() || sl(vrsteGlavnih)">Dodaj jos</li>
     </div>
     <div class="dodavanje" id="dodavanje">
         <h2>Dodavanje hrane</h2>
          <label>Naziv jela<input type="text" id="Nazivjela" name="NazivJela" class="NazivJela"></label><br>
         <label>Cijena jela<input type="text" id="Cijenajela" name="CijenaJela" class="CijenaJela"></label><br>
-        <button id="unos" onclick="citanje() || zatvori()">Dodaj</button>
-        </div>
+        <button onclick="zatvori() || citanje()">Zatvori</button>
+    </div>
     </div>
     
 </body>

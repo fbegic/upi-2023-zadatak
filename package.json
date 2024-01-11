@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "main": "kod.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jest-fetch-mock": "^3.0.3",
     "jsdom": "^23.0.1",
     "msnodesqlv8": "^4.1.2",
-    "jest-fetch-mock": "^3.0.3",
     "sqlite3": "^5.1.7"
   },
   "description": "",

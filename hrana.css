@@ -1,0 +1,106 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif; /* Moderniji font */
+    background: linear-gradient(to right, #1f4037, #99f2c8); /* Svježa i moderna boja gradijenta */
+    color: #1f4037; /* Tamna boja teksta za kontrast */
+}
+nav{
+    background-color: #1f4037; /* Tamna boja pozadine navigacije */
+    padding: 20px 0; /* Dodan padding za bolji izgled */
+}
+nav ul{
+    list-style-type: none;
+    text-align: center;
+    font-family: 'Poppins', Arial, Tahoma, sans-serif;
+}
+nav ul button{
+    display: inline-block;
+    width: auto;
+    background-color:#99f2c8; /* Svijetla boja pozadine gumba */
+    border:none;
+    padding: 10px 20px; /* Povećan padding za bolji izgled */
+    border-radius: 50px; /* Zaobljeni rubovi za moderniji izgled */
+    font-weight: bold; /* Podebljan tekst na gumbima */
+    transition: all 0.3s ease-in-out; /* Dodana tranzicija za glatko prelazak */
+}
+
+nav ul button:hover{
+    background-color: #1f4037; /* Tamna boja pozadine gumba na lebdenje */
+    color: #99f2c8; /* Svijetla boja teksta na lebdenje */
+}
+
+.dodavanje {
+   border-color:#1f4037; /* Tamna boja ruba */
+}
+
+.vrsta-hrane {
+    background-color: #1f4037;
+    color: #99f2c8;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.vrsta-hrane .stavka-hrane:hover {
+    background-color: #99f2c8;
+    color: #1f4037;
+}
+
+.brojNarudzbi {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #1f4037;
+}
+
+.dugmeDodaj, .dugmeOduzmi {
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 5px;
+    border-radius: 20px;
+    background-color: #99f2c8;
+    color: #1f4037;
+    transition: all 0.3s ease-in-out;
+}
+
+.dugmeDodaj:hover, .dugmeOduzmi:hover {
+    background-color: #1f4037;
+    color: #99f2c8;
+}
+
+.smece{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    background-color: #0f2027;
+    padding:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.sadrzaj{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px; /* Adjust this value based on the height of your nav */
+}

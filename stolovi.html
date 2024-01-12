@@ -5,132 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Navigacijska traka</title>
+    <link href="stolovi.css" rel="stylesheet" type="text/css">
     <style>
         *{
             padding: 0px;
             margin: 0px;
+            box-sizing: border-box;
         }
         body{
-            font-family: Calibri, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            transition: all 0.5s ease;
+            display: flex;
         }
         nav{
-            background-color: #2d2929;
+            background-color: #0f2027;
+            padding:auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+            width: 20%;
+            height: 100vh;
+            position: fixed;
         }
         nav ul{
             list-style-type: none;
             text-align: center;
+            font-family: 'Open Sans', Arial, Tahoma, sans-serif;
+            display: flex;
+            flex-direction: column;
         }
         nav ul button{
-            display: inline-block;
+            display: block;
             padding: auto;
-            width: 30%;
-            background: #2d2929;
+            width: 80%;
+            background: #203a43;
+            border: 2px solid #fff;
             border-radius: 10px;
-            height: 40px;
-            border: none;
+            height: 60px; /* Increased the height of the table buttons */
+            transition: all 0.3s ease;
+            margin: 10px 0;
         }
         nav li:hover{
-            background-color: #2d2929;
-            text-decoration: none;
-            
-            
+            background-color: #fff;
+            border-color: #203a43;
         }
         nav a:link, nav a:visited{
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
-            
+            padding: 10px 50px;
+            transition: all 0.3s ease;
         }
         nav a:hover, nav a:active{
-            color: #483D8B;
-            
+            color: #2c5364;
         }
         .sadrzaj{
             margin: 20px;
-            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-left: 25%;
         }
-        .popup{
-            width: 400px;
-            background: #fff;
-            border-radius: 6px;
-            border-bottom:2px solid black;
-            border-top:2px solid black;
-            border-left:2px solid black;
-            border-right:2px solid black;
-            position: absolute;
-            top: 0%;
-            left: 50%;
-            transform: translate(-50%,-50%) scale(0.1);
-            text-align: center;
-            padding: 20px 20px 20px 20px;
-            color: #333;
-            visibility: hidden;
-            transition: transform 0.4s, top 0.4s;
-            
-        }
-
-        .open-popup{
-            visibility: visible;
-            top: 50%;
-            transform: translate(-50%,-50%) scale(1);
-        }
-        div ul li{
-            padding: 10px 10px 10px 10px;
-            background: #fff;
-        }
-        div ul button{
-            padding: 30px 30px ;
-            font: 1em sans-serif;
-            border: none;
-            background: #2d2929;
-            color: #fff;
-            border-radius: 70px;
-            display:inline-block;
-            margin: 20px 20px auto;
-            
-        }
-        div ul button:hover{
-            filter: brightness(0.4);
-            
-            
-        }
-        div ul button:active{
-            transform:  translate(2px);
-        }
-        .rezervacija{
-            width: 300px;
-            height: 300px;
-            display: block;
-            background: #fff;
-            border-radius: 6px;
-            border-bottom:2px solid rgb(197, 190, 190);
-            border-top:2px solid rgb(197, 190, 190);
-            border-left:2px solid rgb(197, 190, 190);
-            border-right:2px solid rgb(197, 190, 190);
-            position: absolute;
-            top: 0%;
-            left: 50%;
-            transform: translate(-50%,-50%) scale(0.1);
-            text-align: left;
-            padding: 30px 20px 20px 20px;
-            color: #333;
-            visibility: hidden;
-            transition: transform 0.4s, top 0.4s;
-            
-            
-        }
-        .rezervacija input
-        {
-            margin-bottom: 5%;
-            margin-top: 18%;
-            
-        }
-        .rez_st{
-            visibility: visible;
-            top: 50%;
-            transform: translate(-50%,-50%) scale(1);
-        }
-        
     </style>
 </head>
 <body>
@@ -146,29 +84,28 @@
         <p>Stolovi</p>
         <ul>
             <button onclick="openPopup() || slanje(stol1)" id="stol1" class="stolovi">Stol 1.</button>
-            <button onclick="openPopup() || slanje(stol2)" id="stol2" class="stolovi">Stol 2.</button>
-            <button onclick="openPopup() || slanje(stol3)"id="stol3" class="stolovi">Stol 3.</button>
-            <button onclick="openPopup() || slanje(stol4)"id="stol4" class="stolovi">Stol 4.</button>
-            <button onclick="openPopup() || slanje(stol5)" id="stol5" class="stolovi">Stol 5.</button>
+            <button onclick="openPopup() || slanje(stol2)" id="stol2" class="stolovi">Stol 3.</button>
+            <button onclick="openPopup() || slanje(stol3)"id="stol3" class="stolovi">Stol 5.</button>
+            <button onclick="openPopup() || slanje(stol4)"id="stol4" class="stolovi">Stol 2.</button>
+            <button onclick="openPopup() || slanje(stol5)" id="stol5" class="stolovi">Stol 4.</button>
 
             <div class="popup" id="popup">
-                <h2>Želite li rezervirati stol ili vidjeti meni</h2>
-                <button onclick="rezerv() || closePopup()"  >Rezervacija</button>
-                <button onclick="closePopup() || otvaranjemeni()">Meni</button> 
-            </div>
-            <div class="rezervacija" id="rezervacija">
-                <h2>Odaberite vrstu rezervacije</h2>
-                <input type="radio" id="cijeli dan" name="grupa" value="1" onclick="boj1() || rezerv_close()">
-                <label for="opcija1">Cijeli dan</label><br>
-                <input type="radio" id="Rucak" name="grupa" value="2" onclick="boj2() || rezerv_close()">
-                <label for="opcija2">Ručak</label><br>
-                <input type="radio" id="Vecera" name="grupa" value="3" onclick="boj3() || rezerv_close()">
-                <label for="opcija3">Večera</label><br>
-                
-            </div> 
-        </ul>        
-    </div> 
-    
+      <h2>Želite li rezervirati stol ili vidjeti meni</h2>
+  <button onclick="rezerv() || closePopup()"  >Rezervacija</button>
+  <button onclick="closePopup() || otvaranjemeni()">Meni</button> 
+ </div>
+ <div class="rezervacija" id="rezervacija">
+  <h2>Odaberite vrstu rezervacije</h2>
+  <input type="radio" id="cijeli dan" name="grupa" value="1" onclick="boj1() || rezerv_close()">
+  <label for="opcija1">Cijeli dan</label><br>
+   <input type="radio" id="Rucak" name="grupa" value="2" onclick="boj2() || rezerv_close()">
+   <label for="opcija2">Ručak</label><br>
+<input type="radio" id="Vecera" name="grupa" value="3" onclick="boj3() || rezerv_close()">
+<label for="opcija3">Večera</label><br>   
+ </div> 
+</ul>        
+ </div> 
+
      <script src="stolovi.js"></script>
 </body>
 </html>

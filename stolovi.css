@@ -1,0 +1,229 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box; /* Dodao sam ovaj stil da spriječim prelijevanje sadržaja */
+}
+body{
+    font-family: Calibri, sans-serif;
+    background-color: #f0f0f0; /* Dodao sam ovu boju da stvorim kontrast s navigacijom */
+}
+nav{
+    background-color: #2d2929;
+    display: flex; /* Dodao sam ovaj stil da poravnam gumbe u navigaciji */
+    justify-content: center; /* Dodao sam ovaj stil da centriram gumbe u navigaciji */
+    align-items: center; /* Dodao sam ovaj stil da vertikalno poravnam gumbe u navigaciji */
+    height: 80px; /* Dodao sam ovaj stil da odredim visinu navigacije */
+}
+nav ul{
+    list-style-type: none;
+    text-align: center;
+    display: flex; /* Dodao sam ovaj stil da prikažem gumbe u redu */
+}
+nav ul button{
+    display: inline-block;
+    padding: 10px 20px; /* Promijenio sam ovaj stil da smanjim veličinu gumba */
+    width: auto; /* Promijenio sam ovaj stil da pustim da se gumbi prilagode tekstu */
+    background: #2d2929;
+    border-radius: 10px;
+    height: auto; /* Promijenio sam ovaj stil da pustim da se gumbi prilagode tekstu */
+    border: none;
+    margin: 0 10px; /* Dodao sam ovaj stil da stvorim razmak između gumba */
+}
+nav li:hover{
+    background-color: #2d2929;
+    text-decoration: none;
+}
+nav a:link, nav a:visited{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+nav a:hover, nav a:active{
+    color: #483D8B;
+}
+.sadrzaj{
+    margin-top: 50px; /* Dodao sam ovaj stil da spustim stolove */
+    display: grid; /* Dodao sam ovaj stil da podijelim sadržaj na rešetku */
+    grid-template-columns: repeat(5, 1fr); /* Dodao sam ovaj stil da odredim broj i veličinu stupaca */
+    grid-gap: 20px; /* Dodao sam ovaj stil da stvorim razmak između elemenata */
+}
+.popup{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    border-bottom:2px solid black;
+    border-top:2px solid black;
+    border-left:2px solid black;
+    border-right:2px solid black;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+div ul li{
+    padding: 10px 10px 10px 10px;
+    background: #fff;
+}
+div ul button{
+    padding: 30px 30px ;
+    font: 1em sans-serif;
+    border: none;
+    background: color-mix(in srgb, rgb(11, 56, 8) 50%, rgb(9, 68, 69) 50%); /* Dodao sam ovaj stil da stvorim novu boju */
+    color: color-contrast(#fff vs #000 #f00 #00f); /* Dodao sam ovaj stil da pronađem kontrastnu boju */
+    border-radius: 70px;
+    display:inline-block;
+    margin: 20px 20px auto;
+}
+div ul button:hover{
+    filter: brightness(0.4);
+}
+div ul button:active{
+    transform:  translate(2px);
+}
+.rezervacija{
+    width: 300px;
+    height: 300px;
+    display: block;
+    background: #fff;
+    border-radius: 6px;
+    border-bottom:2px solid rgb(197, 190, 190);
+    border-top:2px solid rgb(197, 190, 190);
+    border-left:2px solid rgb(197, 190, 190);
+    border-right:2px solid rgb(197, 190, 190);
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: left;
+    padding: 30px 20px 20px 20px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s;
+}
+.rezervacija input
+{
+    margin-bottom: 5%;
+    margin-top: 18%;
+}
+.rez_st{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+}
+nav{
+    background-color: #0f2027;
+    padding:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+nav ul{
+    list-style-type: none;
+    text-align: center;
+    font-family: 'Open Sans', Arial, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+nav ul button{
+    display: inline-block;
+    padding: auto;
+    width: 80%;
+    background: #203a43;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    height: 40px;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+}
+nav li:hover{
+    background-color: #fff;
+    border-color: #203a43;
+}
+nav a:link, nav a:visited{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 50px;
+    transition: all 0.3s ease;
+}
+nav a:hover, nav a:active{
+    color: #2c5364;
+}
+.sadrzaj{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px; /* Adjust this value based on the height of your nav */
+}
+.sadrzaj{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 25%;
+    position: relative;
+}
+
+.sadrzaj button {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #203a43;
+    border: 2px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.sadrzaj button:nth-child(1) {
+    top: 20%;
+    left: 10%;
+}
+
+.sadrzaj button:nth-child(2) {
+    top: 30%;
+    left: 40%;
+}
+
+.sadrzaj button:nth-child(3) {
+    top: 40%;
+    left: 70%;
+}
+
+.sadrzaj button:nth-child(4) {
+    top: 60%;
+    left: 20%;
+}
+
+.sadrzaj button:nth-child(5) {
+    top: 70%;
+    left: 50%;
+}

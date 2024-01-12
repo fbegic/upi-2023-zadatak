@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigacijska traka</title>
+    <link href="hrana.css" rel="stylesheet" type="text/css">
+    <style>
+
+        
+*{
+    padding: 0px;
+    margin: 0px;
+    /* box-sizing: border-box; */
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    transition: all 0.5s ease;
+    display: flex;
+}
+nav{
+    background-color: #0f2027;
+    padding:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+}
+nav ul{
+    list-style-type: none;
+    text-align: center;
+    font-family: 'Open Sans', Arial, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+nav ul button{
+    display: inline-block;
+    padding: auto;
+    width: 80%;
+    background: #203a43;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    height: 40px;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+}
+nav li:hover{
+    background-color: #fff;
+    border-color: #203a43;
+}
+nav a:link, nav a:visited{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 50px;
+    transition: all 0.3s ease;
+}
+nav a:hover, nav a:active{
+    color: #2c5364;
+}
+.sadrzaj{
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 25%;
+}
+
+div ul li{
+    padding: 30px 30px 30px 30px;
+    background: #203a43;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+div ul button{
+    padding: 30px 30px 30px 30px;
+    font: 1em sans-serif;
+    border: none;
+    background: #0f2027;
+    color: #fff;
+    border-radius: 40px;
+    display:inline-block;
+    margin: 30px 30px auto;
+    transition: all 0.3s ease;
+}
+
+div ul button:hover{
+    filter: brightness(0.5);
+}
+div ul button:active{
+    transform:  translate(2px);
+}
+
+.vrsta-hrane {
+    display: none;
+    margin-top: 10px;
+}
+
+.vrsta-hrane .stavka-hrane {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dodavanje{
+    width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    border: 2px solid #2d2929;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+    color: #333;
+    visibility: hidden;
+}
+
+.dod_open{
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.vrsta-hrane .stavka-hrane:hover {
+    background-color: #f5f5f5;
+}
+#vrsteDeserta li {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding:10;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#vrsteDeserta li:hover {
+    background-color: #a93535;
+    display: inline-block;
+    padding: 10px;
+    width: 50%;
+    background: #2d2929;
+    border-radius: 10px;
+    height: 40px;
+    border: none;
+}
+
+#vrsteDeserta li.odabrano {
+    background-color: #c0c0c0;
+
+}
+
+#vrstePića li {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#vrstePića li:hover {
+    background-color: #f0f0f0;
+    display: inline-block;
+    padding: auto;
+    width: 30%;
+    background: #2d2929;
+    border-radius: 10px;
+    height: 40px;
+    border: none;
+}
+
+#vrstePića li.odabrano {
+    background-color: #c0c0c0;
+
+}
+
+#vrstePredjela li {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#vrstePredjela li:hover {
+    background-color: #f0f0f0;
+    display: inline-block;
+    padding: auto;
+    width: 30%;
+    background: #2d2929;
+    border-radius: 10px;
+    height: 40px;
+    border: none;
+}
+
+#vrstePredjela li.odabrano {
+    background-color: #c0c0c0;
+
+}
+
+#vrsteGlavnih li {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#vrsteGlavnih li:hover {
+    background-color: #f0f0f0;
+    display: inline-block;
+    padding: auto;
+    width: 30%;
+    background: #2d2929;
+    border-radius: 10px;
+    height: 40px;
+    border: none;
+}
+
+#vrsteGlavnih li.odabrano {
+    background-color: #c0c0c0;
+
+}
+
+.brojNarudzbi {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.dugmeDodaj, .dugmeOduzmi {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-left: 5px;
+    border-radius: 3px;
+}
+
+.dugmeDodaj:hover, .dugmeOduzmi:hover {
+    background-color: #f0f0f0;
+}
+.smece{
+    height: 20px;
+    width: 20px;
+}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <button><a href="">Pocetna</a></button>
+            <button><a href="hrana.html">HRANA</a></button>
+            <button><a href="stolovi.html">STOLOVI</a></button>
+            <button><a href="racun.html">RAČUN</a></button>
+            
+        </ul>
+    </nav>
+    <div class="sadrzaj" id="sadrzaj">
+        <div id="app">
+            <h1>Pregled Računa</h1>
+            
+            <div id="racun">
+                <ul id="racun-lista">
+                    <!-- Stavke računa će se dinamički dodavati ovdje -->
+                </ul>
+                <p id="ukupno">Ukupno: 0$</p>
+            </div>
+        </div>
+    
+    </div>
+    
+    
+</body>
+<script src="kod.js"></script>
+<script src="meni.js"></script>
+<script src="baza.js"></script>
+</html>

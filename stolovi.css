@@ -6,6 +6,7 @@
 body{
     font-family: Calibri, sans-serif;
     background-color: #f0f0f0; /* Dodao sam ovu boju da stvorim kontrast s navigacijom */
+    color: white;
 }
 nav{
     background-color: #2d2929;

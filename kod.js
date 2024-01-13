@@ -52,12 +52,12 @@ function citanje()
   else
   {
     var dodatni=document.createElement("li");
-    var tekst = document.createTextNode(naziv+" "+cijena);
+    dodatni.id=naziv;
+    var tekst = document.createTextNode(naziv);
     dodatni.appendChild(tekst);
     let lista = document.getElementById(idobar);
+    dodatni.innerHTML = naziv+" "+cijena+'<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><span id="cijena">25</span><img class="smece" id="smece" onclick="bris(this.parentNode)" src="smece.png" />';
     lista.appendChild(dodatni);
-    
-    
   }
 }
 

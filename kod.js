@@ -20,6 +20,8 @@ function oduzmiNarudzbu(element)
   }
 }
 
+
+
 //   //popup prozor za rezervaciju stola ili meni
 
 // //tu je stalo
@@ -52,12 +54,13 @@ function citanje()
   else
   {
     var dodatni=document.createElement("li");
-    dodatni.id=naziv;
-    var tekst = document.createTextNode(naziv);
+    var tekst = document.createTextNode(naziv+" "+cijena);
     dodatni.appendChild(tekst);
     let lista = document.getElementById(idobar);
     dodatni.innerHTML = naziv+" "+cijena+'<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><span id="cijena">25</span><img class="smece" id="smece" onclick="bris(this.parentNode)" src="smece.png" />';
     lista.appendChild(dodatni);
+    
+    
   }
 }
 
@@ -67,6 +70,7 @@ function bris(c)
   let elem=document.getElementById(e);
   elem.remove();
 }
+
 let hrana;
 function biranje(b){
   let c=b.parentNode;
@@ -227,4 +231,27 @@ function meni(a)
     }
 }
 
-module.exports={dodaj,zatvori,citanje,slanje,bris,dodajNarudzbu,oduzmiNarudzbu};
+
+let odabraneStavke = [];
+
+function dodajStavku(naziv, cijena) {
+    odabraneStavke.push({ naziv, cijena });
+    osvjeziOdabraneStavke();
+}
+
+function osvjeziOdabraneStavke() {
+    const odabranaHranaElement = document.getElementById('odabranaHrana');
+    odabranaHranaElement.innerHTML = "";
+    odabraneStavke.forEach(stavka => {
+        const stavkaElement = document.createElement('li');
+        stavkaElement.textContent = `${stavka.naziv} - ${stavka.cijena}$`;
+        odabranaHranaElement.appendChild(stavkaElement);
+    });
+}
+
+function prikaziRacun() {
+  // Redirekcija na stranicu za prikaz računa
+  window.location.href = 'racun.html';
+}
+module.exports={dodaj,zatvori,citanje,slanje,bris,dodajNarudzbu,oduzmiNarudzbu,dodajStavku,biranje,zaklj,zat,odabran};
+

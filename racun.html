@@ -268,10 +268,10 @@ div ul button:active{
             <h1>Pregled Računa</h1>
             
             <div id="racun">
-                <ul id="racun-lista">
+                <ul id="racunStavke">
                     <!-- Stavke računa će se dinamički dodavati ovdje -->
                 </ul>
-                <p id="ukupno">Ukupno: 0$</p>
+                <p>Ukupna cijena: <span id="ukupnaCijena"></span>$</p>
             </div>
         </div>
     
@@ -279,7 +279,32 @@ div ul button:active{
     
     
 </body>
+<!-- Dodajte ovo na stranicu na kojoj želite prikazati račun
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        prikaziRacun();
+    });
+
+    function prikaziRacun() {
+        // Ovdje dodajte kod za dohvaćanje informacija iz lokalne pohrane
+        var odabranoPice = localStorage.getItem('odabranoPice');
+
+        if (odabranoPice) {
+            odabranoPice = JSON.parse(odabranoPice);
+
+            // Ovdje dodajte kod za prikazivanje informacija na stranici računa
+            const racunStavkeElement = document.getElementById('racunStavke');
+            const stavkaElement = document.createElement('li');
+            stavkaElement.textContent = `${odabranoPice.naziv} - ${odabranoPice.cijena}$ (x${odabranoPice.brojNarudzbi})`;
+            racunStavkeElement.appendChild(stavkaElement);
+
+            // I dalje možete dodati ukupnu cijenu ili druge informacije na račun
+        }
+    }
+</script> -->
+
 <script src="kod.js"></script>
 <script src="meni.js"></script>
 <script src="baza.js"></script>
+<script src="racun.js"></script>
 </html>

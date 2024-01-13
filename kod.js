@@ -67,5 +67,164 @@ function bris(c)
   let elem=document.getElementById(e);
   elem.remove();
 }
+let hrana;
+function biranje(b){
+  let c=b.parentNode;
+  hrana=c;
+  console.log(b);
+  console.log(c.id);
+  var brojNarudzbiElement = c.querySelector('.brojNarudzbi');
+  var brojNarudzbi = parseInt(brojNarudzbiElement.textContent);
+  if(brojNarudzbi>0)
+  { 
+    
+    let dod=document.getElementById("biranje");
+    dod.classList.add("odabrano");
+    oduzmiNarudzbu(c);
+  }
+  
+}
+let st;
+function odabran(c){
+    st=c
+    console.log(c);
+    let dod=document.getElementById("biranje");
+    dod.classList.remove("odabrano")
+    racun();
+}
+let Stol1=[];
+let Stol2=[];
+let Stol3=[];
+let Stol4=[];
+let Stol5=[];
+
+
+function racun()
+{
+    let c=hrana;
+    var dodatni=document.createElement('li');
+    dodatni.id=c.id;
+    var tekst = document.createTextNode(c.id);
+    dodatni.appendChild(tekst);
+    let lista = document.getElementById(st);
+    lista.appendChild(dodatni);
+    
+    if(st=="Stol1")
+    {
+      Stol1.push(c.id);
+    }
+    else if(st=='Stol2')
+    {
+      Stol2.push(c.id);
+    }
+    else if(st=='Stol3')
+    {
+      Stol3.push(c.id);
+    }
+    else if(st=='Stol4')
+    {
+      Stol4.push(c.id);
+    }
+    else if(st=='Stol4')
+    {
+      Stol4.push(c.id);
+    }
+    else if(st=='Stol5')
+    {
+      Stol5.push(c.id);
+    }
+}
+function zaklj(a){
+  let st=a.parentNode;
+  console.log(st);
+  let dod=document.getElementById("zakljucni");
+  meni(st);
+    dod.classList.add("za")
+    
+}
+function zat(){
+    let dod=document.getElementById("zakljucni");
+    dod.classList.remove("za")
+}
+
+function meni(a)
+{
+  let st=a.id;
+  console.log(st);
+
+  if(st=="Stol1")
+    {
+      for(let i=0;i<Stol1.length;i++)
+      {
+      var dodatni=document.createElement('li');
+      dodatni.id=Stol1[i];
+      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.appendChild(tekst);
+      let lista = document.getElementById('zakljucni');
+      lista.appendChild(dodatni);
+      }
+    }
+    else if(st=='Stol2')
+    {
+      for(let i=0;i<Stol1.length;i++)
+      {
+      var dodatni=document.createElement('li');
+      dodatni.id=Stol1[i];
+      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.appendChild(tekst);
+      let lista = document.getElementById('zakljucni');
+      lista.appendChild(dodatni);
+      }
+      }
+    else if(st=='Stol3')
+    {
+      for(let i=0;i<Stol1.length;i++)
+      {
+      var dodatni=document.createElement('li');
+      dodatni.id=Stol1[i];
+      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.appendChild(tekst);
+      let lista = document.getElementById('zakljucni');
+      lista.appendChild(dodatni);
+      }
+      
+    }
+    else if(st=='Stol4')
+    {
+      for(let i=0;i<Stol1.length;i++)
+      {
+      var dodatni=document.createElement('li');
+      dodatni.id=Stol1[i];
+      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.appendChild(tekst);
+      let lista = document.getElementById('zakljucni');
+      lista.appendChild(dodatni);
+      }
+    }
+    else if(st=='Stol4')
+    {
+      for(let i=0;i<Stol1.length;i++)
+      {
+      var dodatni=document.createElement('li');
+      dodatni.id=Stol1[i];
+      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.appendChild(tekst);
+      let lista = document.getElementById('zakljucni');
+      lista.appendChild(dodatni);
+      }
+    }
+    else if(st=='Stol5')
+    {
+      for(let i=0;i<Stol1.length;i++)
+      {
+      var dodatni=document.createElement('li');
+      dodatni.id=Stol1[i];
+      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.appendChild(tekst);
+      let lista = document.getElementById('zakljucni');
+      lista.appendChild(dodatni);
+      }
+    }
+}
 
 module.exports={dodaj,zatvori,citanje,slanje,bris,dodajNarudzbu,oduzmiNarudzbu};

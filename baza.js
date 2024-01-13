@@ -18,10 +18,10 @@ db.serialize(() => {
       console.error(err.message);
     } else {
       console.log(row.id, row.naziv, row.cijena, row.kolicina,row.vrsta);
-      var dodatni=document.createElement("li");
-      var tekst = document.createTextNode(row.id+" "+row.cijena);
-      let lista = document.getElementById(row.vrsta);
-      dodatni.appendChild(tekst);
+      // var dodatni=document.createElement("li");
+      // var tekst = document.createTextNode(row.id+" "+row.cijena);
+      // let lista = document.getElementById(row.vrsta);
+      // dodatni.appendChild(tekst);
 
     }
   });

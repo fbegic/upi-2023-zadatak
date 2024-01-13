@@ -1,3 +1,20 @@
+const nam=require('./kod');
+
+function ispis()
+{
+    for(let i=0;i<nam.leight;i++)
+    {
+        var dodatni=document.createElement("li");
+        dodatni.id=naziv;
+        var tekst = document.createTextNode(nam[i]);
+        dodatni.appendChild(tekst);
+        let lista = document.getElementById('racun-lista');
+        dodatni.innerHTML = nam[i]+'<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><span id="cijena">25</span><img class="smece" id="smece" onclick="bris(this.parentNode)" src="smece.png" />';
+        lista.appendChild(dodatni);
+    }
+    
+  }
+
 document.addEventListener('DOMContentLoaded', function () {
     const odabraneStavke = [];
 
@@ -46,3 +63,4 @@ document.addEventListener('DOMContentLoaded', function () {
     const zakljucakTipka = document.getElementById('zakljucak-tipka');
     zakljucakTipka.addEventListener('click', zakljucak);
 });
+

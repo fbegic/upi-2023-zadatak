@@ -68,3 +68,19 @@ document.addEventListener('DOMContentLoaded', function()
    });
  });
 
+
+ document.addEventListener('DOMContentLoaded', function() 
+ {
+   var opcijeDodaci = document.getElementById('opcijeDodaci');
+
+   // Dodajemo event listener na dugme za dodaci
+  var DodBtn = document.getElementById('dodaci');
+   DodBtn.addEventListener('click', function() {
+       // Ako opcije dodataka već nisu prikazane, prikaži ih; inače, sakrij
+       if (opcijeDodaci.style.display === 'none') {
+           opcijeDodaci.style.display = 'block';
+       } else {
+           opcijeDodaci.style.display = 'none';
+      }
+   });
+ });

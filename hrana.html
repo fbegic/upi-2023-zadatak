@@ -71,7 +71,14 @@ nav a:hover, nav a:active{
     justify-content: space-between;
     margin-left: 25%;
 }
+.racun{
+    margin: 20px;
+    display: inline-block;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 25%;
 
+}
 div ul li{
     padding: 30px 30px 30px 30px;
     background: #203a43;
@@ -146,7 +153,7 @@ div ul button:active{
 #vrsteDeserta li:hover {
     background-color: #a93535;
     display: inline-block;
-    padding: 10px;
+    padding: auto;
     width: 100%;
     background: #2d2929;
     border-radius: 10px;
@@ -231,6 +238,33 @@ div ul button:active{
 
 }
 
+
+
+
+
+#vrsteDodataka li {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#vrsteDodataka li:hover {
+    background-color: #f0f0f0;
+    display: inline-block;
+    padding: auto;
+    width: 100%;
+    background: #2d2929;
+    border-radius: 10px;
+    height: 40px;
+    border: none;
+}
+
+#vrsteDodataka li.odabrano {
+    background-color: #c0c0c0;
+
+}
 .brojNarudzbi {
     margin-left: 10px;
     font-weight: bold;
@@ -251,7 +285,6 @@ div ul button:active{
     height: 20px;
     width: 20px;
 }
-
 .biranje{
     width: 400px;
     background: #fff;
@@ -272,9 +305,6 @@ div ul button:active{
     top: 50%;
     transform: translate(-50%,-50%) scale(1);
 }
-
-
-
 .zakljucni{
     width: 400px;
     background: #fff;
@@ -289,6 +319,7 @@ div ul button:active{
     color: #333;
     visibility: hidden;
 }
+
 .za{
     visibility: visible;
     top: 50%;
@@ -299,7 +330,7 @@ div ul button:active{
 <body>
     <nav>
         <ul>
-            <button><a href="">Pocetna</a></button>
+            <button onclick=""><a href="">Pocetna</a></button>
             <button><a href="hrana.html">HRANA</a></button>
             <button><a href="stolovi.html">STOLOVI</a></button>
             <button><a href="racun.html">RAČUN</a></button>
@@ -313,10 +344,8 @@ div ul button:active{
             <button id="predjelo" class="vrsta-btn" data-target="predjelo" onclick="slanje(vrstePredjela)">Predjelo</button>
             <button id="glavnoJelo" class="vrsta-btn" data-target="glavnoJelo" onclick="slanje(vrsteGlavnih)">Glavno jelo</button>
             <button id="desert" class="vrsta-btn" data-target="desert">Desert</button>
-            <button id="dodaci" class="vrsta-btn" data-target="dodaci">Dodaci</button>
-            <button id="zakljucak" class="vrsta-btn" data-target="zakljucak" onclick="prikaziRacun()">Zaključak</button>
-
-            
+            <button id="dodaci" class="vrsta-btn" data-target="dodaci"onclick="slanje(vrsteDodataka)">Dodaci</button>
+            <button id="zakljucak" class="vrsta-btn" data-target="zakljucak" onclick="dodajNaRacun(vrstePića)">Zaključak</button>
         </ul>
 
 
@@ -440,6 +469,35 @@ div ul button:active{
         </ul>
         <li id="unos" onclick="dodaj() || slanje(vrsteGlavnih)">Dodaj jos</li>
     </div>
+
+    <div id="opcijeDodaci" style="display: none;">
+        <h2>Dodaj Dodatak: </h2>
+        <ul id="vrsteDodataka">
+            <li id="Majoneza">Majoneza
+                <span class="brojNarudzbi">0</span> 
+                <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span>
+                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
+                 <span id="cijena">25</span>
+                 <img class="smece" id="smece" onclick="bris(biftek)" src="smece.png" />
+                 <span onclick=" biranje(this)">Dodaj u racun</span></li>
+            <li id="Tartar" >Tartar
+                <span class="brojNarudzbi">0</span> 
+                <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
+                <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
+                <img class="smece" id="smece" onclick="bris(tagliatelle)" src="smece.png" />
+                <span onclick=" biranje(this)">Dodaj u racun</span>
+            </li>
+            <li id="Kecap">Kečap
+                <span class="brojNarudzbi">0</span> 
+                <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
+                <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
+                <img class="smece" id="smece" onclick="bris(teletina)" src="smece.png" />
+                <span onclick=" biranje(this)">Dodaj u racun</span></li>            
+            
+        </ul>
+        <li id="unos" onclick="dodaj() || slanje(vrsteDodataka)">Dodaj jos</li>
+    </div>
+
     <div class="dodavanje" id="dodavanje">
         <h2>Dodavanje hrane</h2>
          <label>Naziv jela<input type="text" id="Nazivjela" name="NazivJela" class="NazivJela"></label><br>
@@ -491,9 +549,7 @@ div ul button:active{
     <div class="zakljucni" id="zakljucni">
 
     </div>
-    
 </body>
 <script src="kod.js"></script>
 <script src="meni.js"></script>
-
 </html>

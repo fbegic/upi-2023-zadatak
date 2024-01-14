@@ -123,8 +123,9 @@ function racun()
     dodatni.appendChild(tekst);
     let dite=document.createElement('span');
     dodatni.appendChild(dite);
-  
     dite.innerHTML=tek+"€";
+    dite.id='cj';
+    dite.className='cj';
     let lista = document.getElementById(st.toLowerCase());
     lista.appendChild(dodatni);
     if(st=="Stol1")

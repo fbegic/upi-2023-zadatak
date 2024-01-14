@@ -54,10 +54,10 @@ function citanje()
   else
   {
     var dodatni=document.createElement("li");
-    var tekst = document.createTextNode(naziv+" "+cijena);
+    var tekst = document.createTextNode(naziv);
     dodatni.appendChild(tekst);
     let lista = document.getElementById(idobar);
-    dodatni.innerHTML = naziv+" "+cijena+'<span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><span id="cijena">25</span><img class="smece" id="smece" onclick="bris(this.parentNode)" src="smece.png" />';
+    dodatni.innerHTML = naziv+'<span class="cijena" id="cijena">'+cijena+'</span><span class="valuta" id="valute">€</span><span class="brojNarudzbi">0</span> <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span><img class="smece" id="smece" onclick="bris(teletina)" src="smece.png" /><span onclick=" biranje(this)">Dodaj u racun</span>';
     lista.appendChild(dodatni);
     
     
@@ -84,7 +84,8 @@ function biranje(b){
     
     let dod=document.getElementById("biranje");
     dod.classList.add("odabrano");
-    oduzmiNarudzbu(c);
+    brojNarudzbi--;
+    brojNarudzbiElement.textContent=brojNarudzbi;
   }
   
 }
@@ -106,13 +107,26 @@ let Stol5=[];
 function racun()
 {
     let c=hrana;
+    let cijena;
+    for(let i=0;i<c.children.length;i++)
+    {
+      var child = c.children[i];
+      if(child.id=='cijena')
+      {
+        cijena=child;
+      }
+    }
+    let tek=cijena.textContent;
     var dodatni=document.createElement('li');
     dodatni.id=c.id;
     var tekst = document.createTextNode(c.id);
     dodatni.appendChild(tekst);
-    let lista = document.getElementById(st);
+    let dite=document.createElement('span');
+    dodatni.appendChild(dite);
+  
+    dite.innerHTML=tek+"€";
+    let lista = document.getElementById(st.toLowerCase());
     lista.appendChild(dodatni);
-    
     if(st=="Stol1")
     {
       Stol1.push(c.id);
@@ -138,6 +152,7 @@ function racun()
       Stol5.push(c.id);
     }
 }
+
 function zaklj(a){
   let st=a.parentNode;
   console.log(st);
@@ -147,15 +162,15 @@ function zaklj(a){
     
 }
 function zat(){
+
     let dod=document.getElementById("zakljucni");
-    dod.classList.remove("za")
+    dod.classList.remove("za");
+ 
 }
 
 function meni(a)
 {
   let st=a.id;
-  console.log(st);
-
   if(st=="Stol1")
     {
       for(let i=0;i<Stol1.length;i++)
@@ -164,71 +179,88 @@ function meni(a)
       dodatni.id=Stol1[i];
       var tekst = document.createTextNode(Stol1[i]);
       dodatni.appendChild(tekst);
-      let lista = document.getElementById('zakljucni');
+      let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
       }
     }
     else if(st=='Stol2')
     {
-      for(let i=0;i<Stol1.length;i++)
+      for(let i=0;i<Stol2.length;i++)
       {
       var dodatni=document.createElement('li');
-      dodatni.id=Stol1[i];
-      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.id=Stol2[i];
+      var tekst = document.createTextNode(Stol2[i]);
       dodatni.appendChild(tekst);
-      let lista = document.getElementById('zakljucni');
+      let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
       }
       }
     else if(st=='Stol3')
     {
-      for(let i=0;i<Stol1.length;i++)
+      for(let i=0;i<Stol3.length;i++)
       {
       var dodatni=document.createElement('li');
-      dodatni.id=Stol1[i];
-      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.id=Stol3[i];
+      var tekst = document.createTextNode(Stol3[i]);
       dodatni.appendChild(tekst);
-      let lista = document.getElementById('zakljucni');
+      let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
       }
       
     }
     else if(st=='Stol4')
     {
-      for(let i=0;i<Stol1.length;i++)
+      for(let i=0;i<Stol4.length;i++)
       {
       var dodatni=document.createElement('li');
-      dodatni.id=Stol1[i];
-      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.id=Stol4[i];
+      var tekst = document.createTextNode(Stol4[i]);
       dodatni.appendChild(tekst);
-      let lista = document.getElementById('zakljucni');
-      lista.appendChild(dodatni);
-      }
-    }
-    else if(st=='Stol4')
-    {
-      for(let i=0;i<Stol1.length;i++)
-      {
-      var dodatni=document.createElement('li');
-      dodatni.id=Stol1[i];
-      var tekst = document.createTextNode(Stol1[i]);
-      dodatni.appendChild(tekst);
-      let lista = document.getElementById('zakljucni');
+      let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
       }
     }
     else if(st=='Stol5')
     {
-      for(let i=0;i<Stol1.length;i++)
+      for(let i=0;i<Stol5.length;i++)
       {
       var dodatni=document.createElement('li');
-      dodatni.id=Stol1[i];
-      var tekst = document.createTextNode(Stol1[i]);
+      dodatni.id=Stol5[i];
+      var tekst = document.createTextNode(Stol5[i]);
       dodatni.appendChild(tekst);
-      let lista = document.getElementById('zakljucni');
+      let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
       }
     }
+}
+function ciscenje()
+{
+  
+  let element=document.getElementById(st.toLowerCase());
+  element.innerHTML="";
+  if(st=="Stol5")
+  {
+    Stol5.splice(0,Stol5.length);
+  }
+  else if(st=="Stol4")
+  {
+    Stol4.splice(0,Stol4.length);
+  }
+  else if(st=="Stol3")
+  {
+    Stol3.splice(0,Stol3.length);
+  }
+  else if(st=="Stol2")
+  {
+    Stol2.splice(0,Stol2.length);
+  }
+  else if(st=="Stol1")
+  {
+    Stol1.splice(0,Stol1.length);
+  }
+  let el2=document.getElementById("popis");
+  el2.innerHTML="";
+  
 }
 
 

@@ -325,6 +325,7 @@ div ul button:active{
     top: 50%;
     transform: translate(-50%,-50%) scale(1);
 }
+
     </style>
 </head>
 <body>
@@ -367,18 +368,22 @@ div ul button:active{
         <h2>Dodaj desert: </h2>
         <ul id="vrsteDeserta">
             <li id="lava" >Lava Cake 
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span>
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
                 <img class="smece" id="smece" onclick="bris(lava)" src="smece.png" />
                 <span onclick=" biranje(this)">Dodaj u racun</span></li>
             <li id="lecce">Tri Lecce
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
                 <img class="smece" id="smece" onclick="bris(lecce)" src="smece.png" />
                 <span onclick=" biranje(this)">Dodaj u racun</span></li>
-            <li id="nutella">Nutella boom <span class="brojNarudzbi">0</span>
+            <li id="nutella">Nutella boom 
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
+                <span class="brojNarudzbi">0</span>
                  <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                  <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
                  <img class="smece" id="smece" onclick="bris(nutella)" src="smece.png" />
@@ -392,18 +397,22 @@ div ul button:active{
     <div id="opcijePića" style="display: none;">
         <h2>Dodaj piće: </h2>
         <ul id="vrstePića">
-            <li id="cola">Coca-Cola cijena 2€
+            <li id="cola">Coca-Cola cijena 
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
                 <img class="smece" id="smece" onclick="bris(cola)" src="smece.png" />
                 <span onclick=" biranje(this)">Dodaj u racun</span></li>
-            <li id="fanta">Fanta<span class="brojNarudzbi">0</span> 
+            <li id="fanta">Fanta
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
+                <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
                 <img class="smece" id="smece" onclick="bris(fanta)" src="smece.png" />
                 <span onclick=" biranje(this)">Dodaj u racun</span></li>
             <li id="mineralna">Mineralna 
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
@@ -419,18 +428,21 @@ div ul button:active{
         <h2>Dodaj predjelo: </h2>
         <ul id="vrstePredjela">
             <li id="juha">Juha s povrćem
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span>
                  <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span id="cijena">
                     <span>23</span><img class="smece" id="smece" onclick="bris(juha)" src="smece.png" />
                     <span onclick=" biranje(this)">Dodaj u racun</span></li>
             <li id="ustipci">Uštipci i meza
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
                 <img class="smece" id="smece" onclick="bris(ustipci)" src="smece.png" />
                 <span onclick=" biranje(this)">Dodaj u racun</span></li>
             <li id="minguessa">Minguessa s maslinama 
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span>
                  <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
@@ -446,6 +458,7 @@ div ul button:active{
         <h2>Dodaj glavno jelo: </h2>
         <ul id="vrsteGlavnih">
             <li id="biftek">Biftek na žaru
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span>
                  <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
@@ -453,6 +466,7 @@ div ul button:active{
                  <img class="smece" id="smece" onclick="bris(biftek)" src="smece.png" />
                  <span onclick=" biranje(this)">Dodaj u racun</span></li>
             <li id="tagliatelle" >Tagliatelle sa sirom
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
@@ -460,6 +474,7 @@ div ul button:active{
                 <span onclick=" biranje(this)">Dodaj u racun</span>
             </li>
             <li id="teletina">Teletina sporo peč
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
@@ -474,6 +489,7 @@ div ul button:active{
         <h2>Dodaj Dodatak: </h2>
         <ul id="vrsteDodataka">
             <li id="Majoneza">Majoneza
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span>
                  <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
@@ -481,6 +497,7 @@ div ul button:active{
                  <img class="smece" id="smece" onclick="bris(biftek)" src="smece.png" />
                  <span onclick=" biranje(this)">Dodaj u racun</span></li>
             <li id="Tartar" >Tartar
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
@@ -488,6 +505,7 @@ div ul button:active{
                 <span onclick=" biranje(this)">Dodaj u racun</span>
             </li>
             <li id="Kecap">Kečap
+                <span class="cijena" id="cijena">4</span><span class="valuta" id="valute">€</span>
                 <span class="brojNarudzbi">0</span> 
                 <span class="dugmeDodaj" onclick="dodajNarudzbu(this)">+</span> 
                 <span class="dugmeOduzmi" onclick="oduzmiNarudzbu(this)">-</span>
@@ -507,31 +525,44 @@ div ul button:active{
     </div>
     <div class="racun" id="racun">
         <p>Racuni</p>
-        <ul class="Stol1" id="Stol1">
+        <div class="Stol1" id="Stol1">
             <h2>Stol1</h2>
+            <ul class="stol1" id="stol1">
 
-        </ul>
-        <ul class="Stol2" id="Stol2">
-            <h2>Stol2</h2>
-
-        </ul>
-        <ul class="Stol2" id="Stol2">
-            <h2>Stol2</h2>
-
-        </ul>
-        <ul class="Stol3" id="Stol3">
-            <h2>Stol3</h2>
-
-        </ul>
-        <ul class="Stol4" id="Stol4">
-            <h2>Stol4</h2>
-
-        </ul>
-        <ul class="Stol5" id="Stol5">
-            <h2>Stol5</h2>
+            </ul>
             <button onclick="zaklj(this)">Zakljucak</button>
-        </ul>
-        
+
+        </div>
+        <div class="Stol2" id="Stol2">
+            <h2>Stol2</h2>
+            <ul class="stol2" id="stol2">
+
+            </ul>
+            <button onclick="zaklj(this)">Zakljucak</button>
+
+        </div>
+        <div class="Stol3" id="Stol3">
+            <h2>Stol3</h2>
+            <ul class="stol3" id="stol3">
+
+            </ul>
+            <button onclick="zaklj(this)">Zakljucak</button>
+
+        </div>
+        <div class="Stol4" id="Stol4">
+            <h2>Stol4</h2>
+            <ul class="stol4" id="stol4">
+
+            </ul>
+            <button onclick="zaklj(this)">Zakljucak</button>
+        </div>
+        <div class="Stol5" id="Stol5">
+            <h2>Stol5</h2>
+            <ul class="stol5" id="stol5">
+
+            </ul>
+            <button onclick="zaklj(this)">Zakljucak</button>
+        </div>
     </div>
     <div class="biranje" id="biranje">
         <h2>Odaberite stol</h2>
@@ -547,7 +578,10 @@ div ul button:active{
   <label for="opcija1">Stol15</label><br> 
     </div>
     <div class="zakljucni" id="zakljucni">
+        <ul class="popis" id="popis">
 
+        </ul>
+        <button onclick="zat() || ciscenje()">Izdaj</button>
     </div>
 </body>
 <script src="kod.js"></script>

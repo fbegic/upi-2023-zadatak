@@ -5,7 +5,7 @@
 }
 body{
     font-family: 'Poppins', sans-serif; /* Moderniji font */
-    background: linear-gradient(to right, #1f4037, #99f2c8); /* Svježa i moderna boja gradijenta */
+    background: linear-gradient(to right, #1f4037, #99f2c8); 
     color: #f4faf8; /* Svijetla boja teksta za kontrast */
 }
 nav{
@@ -105,4 +105,34 @@ nav{
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 100px; /* Adjust this value based on the height of your nav */
+}
+
+.zakljucak {
+    background-color: #008080; /* Zelena boja */
+    border: none;
+    color: white; /* Bijeli tekst */
+    padding: 2px 3px; /* Velika veličina */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 9px; /* Zaobljeni rubovi */
+}
+.mjau {
+    background-color: #008080; /* Zelena boja */
+    border: none;
+    color: white; /* Bijeli tekst */
+    padding: 5px 5px; /* Velika veličina */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 9px; /* Zaobljeni rubovi */
+}
+.zakljucak:hover {
+    background-color: #99f2c8; 
 }

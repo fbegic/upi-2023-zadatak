@@ -169,7 +169,7 @@ div ul button:active{
 #vrstePića li {
     cursor: pointer;
     transition: background-color 0.3s;
-    padding: 10px;
+    padding: 10;
     margin: 5px;
     border-radius: 5px;
 }
@@ -193,7 +193,7 @@ div ul button:active{
 #vrstePredjela li {
     cursor: pointer;
     transition: background-color 0.3s;
-    padding: 10px;
+    padding: 10;
     margin: 5px;
     border-radius: 5px;
 }
@@ -217,7 +217,7 @@ div ul button:active{
 #vrsteGlavnih li {
     cursor: pointer;
     transition: background-color 0.3s;
-    padding: 10px;
+    padding: 10;
     margin: 5px;
     border-radius: 5px;
 }
@@ -245,7 +245,7 @@ div ul button:active{
 #vrsteDodataka li {
     cursor: pointer;
     transition: background-color 0.3s;
-    padding: 10px;
+    padding: 10;
     margin: 5px;
     border-radius: 5px;
 }
@@ -281,6 +281,7 @@ div ul button:active{
 .dugmeDodaj:hover, .dugmeOduzmi:hover {
     background-color: #f0f0f0;
 }
+
 .smece{
     height: 20px;
     width: 20px;
@@ -307,7 +308,7 @@ div ul button:active{
 }
 .zakljucni{
     width: 400px;
-    background: #fff;
+    background: #010d0a;
     border-radius: 6px;
     border: 2px solid #2d2929;
     position: absolute;
@@ -316,7 +317,8 @@ div ul button:active{
     transform: translate(-50%,-50%) scale(0.1);
     text-align: center;
     padding: 20px 20px 20px 20px;
-    color: #333;
+    color: #eeeaea;
+    border-radius: 30px;
     visibility: hidden;
 }
 
@@ -350,7 +352,7 @@ div ul button:active{
             <button id="glavnoJelo" class="vrsta-btn" data-target="glavnoJelo" onclick="slanje(vrsteGlavnih)">Glavno jelo</button>
             <button id="desert" class="vrsta-btn" data-target="desert">Desert</button>
             <button id="dodaci" class="vrsta-btn" data-target="dodaci"onclick="slanje(vrsteDodataka)">Dodaci</button>
-            <button id="zakljucak" class="vrsta-btn" data-target="zakljucak" onclick="dodajNaRacun(vrstePića)">Zaključak</button>
+            <!-- <button id="zakljucak" class="vrsta-btn" data-target="zakljucak" onclick="dodajNaRacun(vrstePića)">Zaključak</button> -->
         </ul>
 
 
@@ -359,7 +361,7 @@ div ul button:active{
         <div id="prikazHrane" class="vrsta-hrane">
             <!-- Stavke će se dinamički dodavati ovde putem JavaScript-a -->
         </div>
-
+        
         <!-- Dodatni HTML za prikaz dodatnih opcija -->
         <div id="dodatneOpcije" class="vrsta-hrane">
             <!-- Dodatne opcije će se dinamički dodavati ovde putem JavaScript-a -->
@@ -527,14 +529,14 @@ div ul button:active{
         <button onclick="zatvori() || citanje()">Zatvori</button>
     </div>
     </div>
-    <div class="racun" id="racun">
+    <div class="racun" id="racun">      
         <p>Racuni</p>
         <div class="Stol1" id="Stol1">
             <h2>Stol1</h2>
             <ul class="stol1" id="stol1">
 
             </ul>
-            <button onclick="zaklj(this)">Zakljucak</button>
+            <button class="zakljucak"onclick="zaklj(this)">Zakljucak</button>
 
         </div>
         <div class="Stol2" id="Stol2">
@@ -542,7 +544,7 @@ div ul button:active{
             <ul class="stol2" id="stol2">
 
             </ul>
-            <button onclick="zaklj(this)">Zakljucak</button>
+            <button class="zakljucak"onclick="zaklj(this)">Zakljucak</button>
 
         </div>
         <div class="Stol3" id="Stol3">
@@ -550,7 +552,7 @@ div ul button:active{
             <ul class="stol3" id="stol3">
 
             </ul>
-            <button onclick="zaklj(this)">Zakljucak</button>
+            <button class="zakljucak"onclick="zaklj(this)">Zakljucak</button>
 
         </div>
         <div class="Stol4" id="Stol4">
@@ -558,16 +560,17 @@ div ul button:active{
             <ul class="stol4" id="stol4">
 
             </ul>
-            <button onclick="zaklj(this)">Zakljucak</button>
+            <button class="zakljucak"onclick="zaklj(this)">Zakljucak</button>
         </div>
         <div class="Stol5" id="Stol5">
             <h2>Stol5</h2>
             <ul class="stol5" id="stol5">
 
             </ul>
-            <button onclick="zaklj(this)">Zakljucak</button>
+            <button class="zakljucak"onclick="zaklj(this)">Zakljucak</button>
         </div>
     </div>
+    
     <div class="biranje" id="biranje">
         <h2>Odaberite stol</h2>
   <input type="radio" id="st1" name="grupa" value="1" onclick="odabran('Stol1')  ">
@@ -585,7 +588,7 @@ div ul button:active{
         <ul class="popis" id="popis">
 
         </ul>
-        <button onclick="zat() || ciscenje()">Izdaj</button>
+        <button class="mjau" onclick="zat() || ciscenje()">Izdaj</button>
     </div>
 </body>
 <script src="kod.js"></script>

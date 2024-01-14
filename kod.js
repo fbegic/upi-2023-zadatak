@@ -98,12 +98,23 @@ function odabran(c){
     racun();
 }
 let Stol1=[];
+let st1cj=[];
 let Stol2=[];
+let st2cj=[];
 let Stol3=[];
+let st3cj=[];
 let Stol4=[];
+let st4cj=[];
 let Stol5=[];
+let st5cj=[];
 
+let cijenaracuna1=0;
+let cijenaracuna2=0;
+let cijenaracuna3=0;
+let cijenaracuna4=0;
+let cijenaracuna5=0;
 
+let ukupniprihod=0;
 function racun()
 {
     let c=hrana;
@@ -117,6 +128,7 @@ function racun()
       }
     }
     let tek=cijena.textContent;
+    ukupniprihod=parseInt(tek)+ukupniprihod;
     var dodatni=document.createElement('li');
     dodatni.id=c.id;
     var tekst = document.createTextNode(c.id);
@@ -131,31 +143,47 @@ function racun()
     if(st=="Stol1")
     {
       Stol1.push(c.id);
+      st1cj.push(tek);
+      cijenaracuna1=parseFloat(tek)+cijenaracuna1;
+      
     }
     else if(st=='Stol2')
     {
       Stol2.push(c.id);
+      st2cj.push(tek);
+      cijenaracuna2=parseFloat(tek)+cijenaracuna2;
+
+
+
     }
     else if(st=='Stol3')
     {
       Stol3.push(c.id);
+      st3cj.push(tek);
+      cijenaracuna3+=parseFloat(tek);
+
     }
     else if(st=='Stol4')
     {
       Stol4.push(c.id);
-    }
-    else if(st=='Stol4')
-    {
-      Stol4.push(c.id);
+      st4cj.push(tek);
+      cijenaracuna4+=parseFloat(tek);
+
+
     }
     else if(st=='Stol5')
     {
       Stol5.push(c.id);
+      st5cj.push(tek);
+      cijenaracuna5+=parseFloat(tek);
+
+
     }
 }
-
+let stolzazalj;
 function zaklj(a){
   let st=a.parentNode;
+  stolzazalj=st.id;
   console.log(st);
   let dod=document.getElementById("zakljucni");
   meni(st);
@@ -178,11 +206,24 @@ function meni(a)
       {
       var dodatni=document.createElement('li');
       dodatni.id=Stol1[i];
+      let cij=st1cj[i];
+      let dite=document.createElement('span');
       var tekst = document.createTextNode(Stol1[i]);
+      dite.className="cj";
+      dite.id="cj";
       dodatni.appendChild(tekst);
+      
+      dodatni.appendChild(dite);
+      dite.innerHTML=cij+"€";
       let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
+      
       }
+      let lista = document.getElementById('popis');
+      var ukupno=document.createElement('li');
+      var te=document.createTextNode("Ukupna cijena           "+cijenaracuna1+"  €");
+      ukupno.appendChild(te);
+      lista.append(ukupno);
     }
     else if(st=='Stol2')
     {
@@ -190,11 +231,22 @@ function meni(a)
       {
       var dodatni=document.createElement('li');
       dodatni.id=Stol2[i];
+      let cij=st2cj[i];
+      let dite=document.createElement('span');
       var tekst = document.createTextNode(Stol2[i]);
+      dite.className="cj";
+      dite.id="cj";
       dodatni.appendChild(tekst);
+      dodatni.appendChild(dite);
+      dite.innerHTML=cij+"€";
       let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
       }
+      let lista = document.getElementById('popis');
+      var ukupno=document.createElement('li');
+      var te=document.createTextNode("Ukupna cijena           "+cijenaracuna2+"€");
+      ukupno.appendChild(te);
+      lista.append(ukupno);
       }
     else if(st=='Stol3')
     {
@@ -202,11 +254,23 @@ function meni(a)
       {
       var dodatni=document.createElement('li');
       dodatni.id=Stol3[i];
+      let cij=st3cj[i];
+      let dite=document.createElement('span');
       var tekst = document.createTextNode(Stol3[i]);
+      dite.className="cj";
+      dite.id="cj";
       dodatni.appendChild(tekst);
+      dodatni.appendChild(dite);
+      dite.innerHTML=cij+"€";
       let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
       }
+      let lista = document.getElementById('popis');
+      var ukupno=document.createElement('li');
+      var te=document.createTextNode("Ukupna cijena           "+cijenaracuna3+"€");
+      ukupno.appendChild(te);
+      lista.append(ukupno);
+
       
     }
     else if(st=='Stol4')
@@ -215,11 +279,23 @@ function meni(a)
       {
       var dodatni=document.createElement('li');
       dodatni.id=Stol4[i];
+      let cij=st4cj[i];
+      let dite=document.createElement('span');
       var tekst = document.createTextNode(Stol4[i]);
+      dite.className="cj";
+      dite.id="cj";
+      dite.innerHTML=cij+"€";
       dodatni.appendChild(tekst);
+      dodatni.appendChild(dite);
+      
       let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
       }
+      let lista = document.getElementById('popis');
+      var ukupno=document.createElement('li');
+      var te=document.createTextNode("Ukupna cijena           "+cijenaracuna4+"€");
+      ukupno.appendChild(te);
+      lista.append(ukupno);
     }
     else if(st=='Stol5')
     {
@@ -227,43 +303,68 @@ function meni(a)
       {
       var dodatni=document.createElement('li');
       dodatni.id=Stol5[i];
+      let cij=st5cj[i];
+      let dite=document.createElement('span');
       var tekst = document.createTextNode(Stol5[i]);
+      dite.innerHTML=cij+"€";
+      dite.id="cj";
+      dite.className="cj";
       dodatni.appendChild(tekst);
+      dodatni.appendChild(dite);
+      
       let lista = document.getElementById('popis');
       lista.appendChild(dodatni);
       }
+      let lista = document.getElementById('popis');
+      var ukupno=document.createElement('li');
+      var te=document.createTextNode("Ukupna cijena           "+cijenaracuna5+"€");
+      ukupno.appendChild(te);
+      lista.append(ukupno);
     }
 }
 function ciscenje()
 {
   
-  let element=document.getElementById(st.toLowerCase());
+  let element=document.getElementById(stolzazalj.toLowerCase());
   element.innerHTML="";
-  if(st=="Stol5")
+  if(stolzazalj=="Stol5")
   {
     Stol5.splice(0,Stol5.length);
+    st5cj.splice(0,st5cj.length);
+    cijenaracuna5=0;
   }
-  else if(st=="Stol4")
+  else if(stolzazalj=="Stol4")
   {
     Stol4.splice(0,Stol4.length);
+    st4cj.splice(0,st4cj.length);
+    cijenaracuna4=0;
+
   }
-  else if(st=="Stol3")
+  else if(stolzazalj=="Stol3")
   {
     Stol3.splice(0,Stol3.length);
+    st3cj.splice(0,st3cj.length);
+    cijenaracuna3=0;
+
   }
-  else if(st=="Stol2")
+  else if(stolzazalj=="Stol2")
   {
     Stol2.splice(0,Stol2.length);
+    st2cj.splice(0,st2cj.length);
+    cijenaracuna2=0;
+
   }
-  else if(st=="Stol1")
+  else if(stolzazalj=="Stol1")
   {
     Stol1.splice(0,Stol1.length);
+    st1cj.splice(0,st1cj.length);
+    cijenaracuna1=0;
+
   }
   let el2=document.getElementById("popis");
   el2.innerHTML="";
   
 }
-
 
 let odabraneStavke = [];
 

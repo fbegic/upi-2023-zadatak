@@ -120,7 +120,7 @@ nav{
     cursor: pointer;
     border-radius: 9px; /* Zaobljeni rubovi */
 }
-.mjau {
+.zaZaklj {
     background-color: #008080; /* Zelena boja */
     border: none;
     color: white; /* Bijeli tekst */
@@ -132,6 +132,20 @@ nav{
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 9px; /* Zaobljeni rubovi */
+}
+.biranje{
+    width: 500px;
+    background: #0f2027;
+    border-radius: 6px;
+    border: 2px solid #2d2929;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 90px 90px 90px 90px;
+    color: #fff8f8;
+    visibility: hidden;
 }
 .zakljucak:hover {
     background-color: #99f2c8; 

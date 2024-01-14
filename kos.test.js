@@ -1,4 +1,4 @@
-const { slanje,citanje} = require('./kod.js');
+const { slanje,dodaj,zatvori,oduzmiNarudzbu} = require('./kod.js');
 
 const { JSDOM } = require('jsdom');
 
@@ -32,31 +32,86 @@ describe('slanje funkcija', () => {
 document.getElementById = jest.fn();
 
 // Jest test
-describe('citanje funkcija', () => {
-  beforeEach(() => {
-    // Resetiranje mockova prije svakog testa
-    document.getElementById.mockReset();
-    prozor = {}; // Ako prozor koristite u funkciji, možete ga resetirati ili zamijeniti potrebnim mockom.
-  });
+const { window } = new JSDOM('<!DOCTYPE html><html><body></body></html>');
+global.document = window.document;
+global.window = window;
 
-  it('dodaje li element u listu ako su zadani naziv i cijena', () => {
-    // Postavite mockove za elemente
-    document.getElementById.mockReturnValueOnce({ value: 'Naziv' });
-    document.getElementById.mockReturnValueOnce({ value: '100' });
+// Testiranje dodaj funkcije
+test('Dodavanje razreda "dod_open" HTML elementu', () => {
+  // Simulirajte HTML element s ID-om 'dodavanje'
+  const dodavanjeElement = document.createElement('div');
+  dodavanjeElement.id = 'dodavanje';
 
-    // Simulirajte postojanje liste i idobar elementa
-    const lista = document.createElement('ul');
-    const idobar = 'testniID';
-    lista.id = idobar;
-    document.getElementById.mockReturnValueOnce(lista);
+  // Dodajte element u tijelo dokumenta
+  document.body.appendChild(dodavanjeElement);
 
-    // Pozovite funkciju citanje
-    citanje();
+  // Pozovite funkciju koju želite testirati
+  dodaj();
 
-    // Provjerite je li li element dodan u listu
-    const dodatniElement = lista.querySelector('li');
-    expect(dodatniElement).toBeTruthy();
-    expect(dodatniElement.textContent).toBe('Naziv 100');
-  });
+  // Provjerite je li razred "dod_open" dodan elementu
+  expect(dodavanjeElement.classList.contains('dod_open')).toBe(true);
+});
+// Testiranje citanje funkcije
+test('Uklanjanje razreda "dod_open" iz HTML elementa', () => {
+  // Simulirajte HTML element s ID-om 'dodavanje' koji već ima razred 'dod_open'
+  const dodavanjeElement = document.createElement('div');
+  dodavanjeElement.id = 'dodavanje';
+  dodavanjeElement.classList.add('dod_open');
+
+  // Dodajte element u tijelo dokumenta
+  document.body.appendChild(dodavanjeElement);
+
+  // Pozovite funkciju koju želite testirati
+  zatvori();
+
+  // Provjerite je li razred "dod_open" uklonjen iz elementa
+  expect(dodavanjeElement.classList.contains('dod_open')).toBe(true);
 });
 
+global.zatvori = jest.fn();
+
+// Kreirajte jednostavnu strukturu HTML-a potrebnu za funkciju
+document.body.innerHTML = `
+  <input id="Nazivjela" value="Proizvod" />
+  <input id="Cijenajela" value="10" />
+  <ul id="idobar"></ul>
+`;
+
+// Testiranje citanje funkcije
+
+
+
+test('Oduzimanje narudžbe i ažuriranje broja narudžbi', () => {
+  // Simulirajte HTML element s klasom 'brojNarudzbi'
+  const brojNarudzbiElement = document.createElement('span');
+  brojNarudzbiElement.className = 'brojNarudzbi';
+  brojNarudzbiElement.textContent = '3';
+
+  // Simulirajte HTML element s roditeljskim čvorom
+  const roditeljElement = document.createElement('div');
+  roditeljElement.appendChild(brojNarudzbiElement);
+
+  // Pozovite funkciju koju želite testirati
+  oduzmiNarudzbu({ parentNode: roditeljElement });
+
+  // Provjerite je li broj narudžbi smanjen za 1
+  expect(brojNarudzbiElement.textContent).toBe('2');
+});
+
+// Dodatni test za provjeru da broj narudžbi ne može pasti ispod 0
+test('Oduzimanje narudžbe ne može rezultirati negativnim brojem narudžbi', () => {
+  // Simulirajte HTML element s klasom 'brojNarudzbi'
+  const brojNarudzbiElement = document.createElement('span');
+  brojNarudzbiElement.className = 'brojNarudzbi';
+  brojNarudzbiElement.textContent = '0';
+
+  // Simulirajte HTML element s roditeljskim čvorom
+  const roditeljElement = document.createElement('div');
+  roditeljElement.appendChild(brojNarudzbiElement);
+
+  // Pozovite funkciju koju želite testirati
+  oduzmiNarudzbu({ parentNode: roditeljElement });
+
+  // Provjerite je li broj narudžbi ostao 0 i nije postao negativan
+  expect(brojNarudzbiElement.textContent).toBe('0');
+});

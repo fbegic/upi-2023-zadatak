@@ -180,6 +180,7 @@ function racun()
 
     }
 }
+
 let stolzazalj;
 function zaklj(a){
   let st=a.parentNode;
@@ -387,5 +388,5 @@ function prikaziRacun() {
   // Redirekcija na stranicu za prikaz računa
   window.location.href = 'racun.html';
 }
-module.exports={dodaj,zatvori,citanje,slanje,bris,dodajNarudzbu,oduzmiNarudzbu,dodajStavku,biranje,zaklj,zat,odabran};
+module.exports={dodaj,zatvori,citanje,slanje,bris,ciscenje,dodajNarudzbu,oduzmiNarudzbu,dodajStavku,biranje,zaklj,zat,odabran};
 
